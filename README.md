@@ -10,6 +10,7 @@ conda install mamba -n base -c conda-forge
 mamba env create -f environment.yml
 mamba activate hic
 ```
+Note: Users are encouraged to download the `Juicer v1.6` separately from [here](https://github.com/aidenlab/juicer/releases) since the main branch contains `v2` which has bugs. The Juicer should be cloned in `tools` directory as per instructions given by Juicer manual [here ](https://github.com/aidenlab/juicer/wiki/Installation) (See **Example with CPU version**)
 
 ## Running the pipeline
 
