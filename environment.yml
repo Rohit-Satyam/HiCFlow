@@ -1,0 +1,37 @@
+name: hic
+channels:
+    - cerebis
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - fithic
+    - fastqc
+    - fastp
+    - samtools=1.12
+    - bwa
+    - scipy
+    - numpy=1.22
+    - iced
+    - bx-python=0.8.11
+    - pysam
+    - cooler
+    - r-base
+    - r-ggplot2
+    - r-rcolorbrewer
+    - r-gridbase
+    - tbb=2020.2
+    - bowtie2
+    - mosdepth
+    - multiqc
+    - nextflow
+    - python=3.8.10
+    - pip
+    - qc3C
+    - r-biocmanager
+    - bioconductor-biocstyle 
+    - r-r.utils
+    - gnuplot
+    - samtools
+    - pip:
+        - bx
