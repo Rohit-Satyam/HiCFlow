@@ -1,9 +1,5 @@
 <img src="./logo.png" alt="HiCFlow Logo" width="400"/>
 
-
-
-
-# HiCFlow
 HiCFlow is a hassle-free nextflow pipeline for HIC Data analysis 
 
 
