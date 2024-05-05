@@ -1,5 +1,15 @@
+![](logo.png =250x)
 
-<img src="logo.pnf" alt="" style="width:200px;"/>
+<style>
+.custom-image {
+  width: 300px;
+  height: auto;
+}
+</style>
+
+<img src="logo.png" alt="image" class="custom-image">
+
+
 # HiCFlow
 A nextflow pipeline for HIC Data analysis
 
