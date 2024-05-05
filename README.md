@@ -4,7 +4,20 @@ A nextflow pipeline for HIC Data analysis
 
 ## Setting up environment
 
+```bash
+## Instal mamba for quick pipeline dependency setup
+conda install mamba -n base -c conda-forge
+mamba env create -f environment.yml
+mamba activate hic
+```
 
+## Running the pipeline
+
+Open the help section to view mandatory arguments and optional arguments by using the command below:
+```bash
+nextflow run main.nf --help
+```
+The help section enlist the input required by `HiCFlow` pipeline.
 ```bash
 
 N E X T F L O W  ~  version 23.10.1
