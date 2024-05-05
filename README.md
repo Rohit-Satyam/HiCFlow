@@ -1,4 +1,4 @@
-![](logo.png)
+![](logo.png =250x)
 
 # HiCFlow
 A nextflow pipeline for HIC Data analysis
