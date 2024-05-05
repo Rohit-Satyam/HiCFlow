@@ -36,7 +36,7 @@ ls -1 !{sid}/*.hic | while read p;
 grep '>' !{params.ref} | awk -F'|' '{print $1}' | sed 's/>//g' | sed 's/ //g' > chrlist
 
 ## Compartment calling
-!{projectDir}/bin/compartment.sh chrlist !{sid} !{projectDir} !{params.compartments}
+!{projectDir}/bin/compartment.sh chrlist !{sid} !{projectDir} !{params.compartments} !{params.norm}
 unlink fastq
 '''
 }
