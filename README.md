@@ -1,4 +1,4 @@
-![](logo.png | width=100)
+<img src="./logo.png" alt="HiCFlow Logo" width="400"/>
 
 
 
