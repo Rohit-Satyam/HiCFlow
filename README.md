@@ -2,6 +2,9 @@
 A nextflow pipeline for HIC Data analysis
 
 
+## Setting up environment
+
+
 ```bash
 
 N E X T F L O W  ~  version 23.10.1
