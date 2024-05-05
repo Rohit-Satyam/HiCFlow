@@ -35,3 +35,4 @@ dependencies:
     - samtools
     - pip:
         - bx
+        - hic2cool

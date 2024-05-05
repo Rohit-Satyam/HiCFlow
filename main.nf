@@ -21,7 +21,8 @@ Input:
 	* --outdir: Path/Name of the output directory. Default [${params.outdir}]
 	* --ref: Path to reference fasta file. Default [${params.ref}]
 	* --prefix: Prefix used by the indexed files. Default [${params.prefix}]
-  * --insertSize: Insert size. Default [${params.insertSize}]
+ 	* --insertSize: Insert size. Default [${params.insertSize}]
+	* --compartments: Size of the compartments. Default [${params.compartments}]
 
 	#### Parameters to pass additional Arguments ####
 	* --fastp_ext: Additional arguments to pass to FASTP. Default [${params.fastp_ext}]
@@ -78,13 +79,13 @@ PRETRIM("01_rawFastQC",pretrim_input,'pre-trimming')
 if (params.skipTrim == false){
         FASTP(input_fastqs)
 	      FASTP.out[0]
-        //raw_qc3c=QC3C(FASTP.out[0]).collect()
+        raw_qc3c=QC3C(FASTP.out[0]).collect()
         POSTTRIMFASTQC(FASTP.out[0])
         postrim_input=POSTTRIMFASTQC.out.postfastqc.collect()
         POSTTRIM("02_adapterTrimming",postrim_input,'post-trimming')
 
 } else {
-  //raw_qc3c=QC3C(input_fastqs)
+  raw_qc3c=QC3C(input_fastqs)
 }
 
 // Step3 Running preparation for Juicer
