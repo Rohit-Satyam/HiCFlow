@@ -1,13 +1,6 @@
-![](logo.png =250x)
+![](logo.png){250x}
 
-<style>
-.custom-image {
-  width: 300px;
-  height: auto;
-}
-</style>
 
-<img src="logo.png" alt="image" class="custom-image">
 
 
 # HiCFlow
