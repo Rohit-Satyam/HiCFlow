@@ -4,7 +4,7 @@
 
 
 # HiCFlow
-A nextflow pipeline for HIC Data analysis
+HiCFlow is a hassle-free nextflow pipeline for HIC Data analysis 
 
 
 ## Setting up environment
@@ -17,6 +17,18 @@ mamba activate hic
 ```
 Note: Users are encouraged to download the `Juicer v1.6` separately from [here](https://github.com/aidenlab/juicer/releases) since the main branch contains `v2` which has bugs. The Juicer should be cloned in `tools` directory as per instructions given by Juicer manual [here ](https://github.com/aidenlab/juicer/wiki/Installation) (See **Example with CPU version**)
 
+## Directory Structure
+The only directories you have to worry about are the following:
+```bash
+data/
+tools/
+references/
+```
+
+ - Dump all your fastq files in the `data` directory.
+ - `tools` directory will hold your juicer executables.
+ - `references` directory will hold your reference FASTA file and BWA indexes which are easy to generate using `bwa index ref.fa` commands. 
+ 
 ## Running the pipeline
 
 Open the help section to view mandatory arguments and optional arguments by using the command below:
@@ -55,12 +67,27 @@ Input:
 	* --skipAlignment: Set this "true" to skip Alignment Step. Default [false]
 
 ```
-
+## Use Case
+The single-liner command to run HiCFlow is as follows
 ```bash
-nextflow run main.nf --input "data/*_{1,2}.fastq.gz" \
---outdir plasmodium_results \
---ref $PWD/references/PlasmoDB-67_Pfalciparum3D7_Genome.fasta \
---mode PE --enzyme MboI --prefix PlasmoDB-67_Pfalciparum \
---insertSize 300 --index_dir $PWD/references/ 
+nextflow run main.nf --input "data/*_{1,2}.fastq.gz" \ ##regular expression of the FASTQ files
+--outdir plasmodium_results \ ## name of output directory
+--ref $PWD/references/PlasmoDB-67_Pfalciparum3D7_Genome.fasta \ ## reference fasta
+--mode PE --enzyme MboI --prefix PlasmoDB-67_Pfalciparum \ ## restriction enzyme and prefix of BWA indexes
+--insertSize 300 --index_dir $PWD/references/ # insert size and index Directory 
 ```
 You can add `-resume` argument to the command above if the pipeline gets interrupted in the middle or throws an error to prevent rerunning of steps that were successfully ran.
+
+## HiCFlow workflow
+HiCFlow tries to run the following processes (some parallely and some sequentially). The parallel steps are demarcated in white rectangles. 
+```mermaid
+graph TB
+A[Fastq Files]  --> B((HiCFlow))
+C[Reference FASTA]  --> B((HiCFlow))
+B -- parallel step1 --> D[FASTQC] 
+B -- parallel step2 --> E[FASTp] --> K[FASTQC]
+B -- parallel step3 --> F[Juicer Input Preprocessing]
+B -- parallel step4 --> G[qc3C]
+E --> H[Run Juicer] -- .hic -->I[Run Compartments]
+H -- .hic format conversion--> J[hic2cool]
+```
