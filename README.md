@@ -1,4 +1,4 @@
-![](logo.png){250x}
+![](logo.png | width=100)
 
 
 
