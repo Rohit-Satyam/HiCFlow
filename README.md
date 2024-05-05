@@ -83,10 +83,10 @@ You can add `-resume` argument to the command above if the pipeline gets interru
 4. Quality control report ([`MultiQC`](https://multiqc.info/))
 5.  Create restriction sites file for restriction enzyme ([`prepareJuicer`](https://github.com/Rohit-Satyam/HiCFlow/blob/main/modules/03_prepareJuicer.nf))
 6. HiC data processing ([`Juicer`](https://github.com/aidenlab/juicer)).
-        1. Reads Mapping using BWA and Chimeric Read handling  ([`bwa`](https://github.com/lh3/bwa))
-        2.  Detection of duplicates and removal
-        3.  Generate raw and normalized contact maps ([`KR`](https://github.com/hiclib/iced))
-7.  Convert `.hic` files to `.cool` file ([`hic2cool`](https://github.com/4dn-dcic/hic2cool))
+    1. Reads Mapping using BWA and Chimeric Read handling  ([`bwa`](https://github.com/lh3/bwa))
+    2.  Detection of duplicates and removal
+    3.  Generate raw and normalized contact maps ([`KR`](https://github.com/hiclib/iced))
+8.  Convert `.hic` files to `.cool` file ([`hic2cool`](https://github.com/4dn-dcic/hic2cool))
 
  
 HiCFlow tries to run the following processes (some parallely and some sequentially). The parallel steps are demarcated in white rectangles. 
